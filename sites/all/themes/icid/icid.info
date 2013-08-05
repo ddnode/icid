@@ -1,0 +1,20 @@
+name = ICID
+description = ICID 2003 网站主题
+core = 7.x
+
+; Regions
+
+regions[sidebar_first] = Sidebar first
+regions[sidebar_second] = Sidebar second
+regions[content] = Content
+regions[header] = Header
+regions[help] = Help
+regions[footer] = Footer
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[highlighted] = Highlighted
+
+; Stylesheets
+
+stylesheets[all][] = css/normalize.css
+stylesheets[all][] = css/style.css

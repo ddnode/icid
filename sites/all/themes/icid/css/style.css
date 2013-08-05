@@ -1,0 +1,115 @@
+.clearfix:before,
+.clearfix:after {
+  content:"";
+  display:table;
+}
+.clearfix:after{
+  clear:both;
+}
+.clearfix{
+  *zoom:1;/*ie6,7*/
+}
+
+body {
+  background: #939393;
+  font: 14px/1.5em "微软雅黑","黑体";
+  color: #757474;
+}
+#page {
+  width: 960px;
+  background: #fff url(../images/bg.png) bottom no-repeat;
+  margin: 0 auto;
+}
+#header {
+  height: 127px;
+  background: url(../images/header.png) no-repeat;
+}
+#main {
+  margin-top: 30px;
+}
+#sidebar-first,
+#sidebar-second,
+#content {
+  float: left;
+}
+#sidebar-first {
+  width: 170px;
+}
+#sidebar-second {
+  width: 200px;
+}
+.sidebar-first #content {
+  width: 790px;
+}
+.sidebar-second #content {
+  width: 760px;
+}
+.two-sidebars #content {
+  width: 590px;
+}
+#content .inner {
+  margin: 0 2px;
+}
+#footer {
+  height: 49px;
+  background: url(../images/footer.png) top center no-repeat;
+}
+.copyright {
+  text-align: center;
+  color: #b5b5b6;
+  padding-top: 15px;
+}
+
+#superfish-1 {
+  margin-left: 18px;
+}
+#superfish-1 li {
+  background: #dcdddd;
+  border-radius: 5px;
+  width: 136px;
+  height: 42px;
+  margin-bottom: 1px;
+}
+#superfish-1 li.active-trail,
+#superfish-1 li:hover {
+  background: #009cdf;
+}
+#superfish-1 li a {
+  color: #009cdf;
+  display: block;
+  text-align: center;
+  line-height: 42px;
+  text-decoration: none;
+  font-weight: bold;
+}
+#superfish-1 li a.active,
+#superfish-1 li a:hover {
+  color: #fff;
+}
+
+h1.page-title {
+  font-size: 20px;
+  line-height: 2em;
+  color: #7bc423;
+  margin: 0;
+  background: url(../images/page-title.png) bottom no-repeat;
+}
+
+/* Sign Up */
+#block-block-1 {
+  width: 174px;
+  height: 129px;
+  background: url(../images/sign-up.png) no-repeat;
+  padding-top: 85px;
+}
+#block-block-1 .sign-up {
+  height: 35px;
+  margin: 0 20px;
+  background: rgb(255,255,255);
+  background: rgba(255,255,255,0.8);
+  filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#CCFFFFFF', endColorstr='#CCFFFFFF');
+  text-align: center;
+  font-weight: bold;
+  line-height: 35px;
+  color: #0068b6;
+}
