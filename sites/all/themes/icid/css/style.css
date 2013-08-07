@@ -9,7 +9,13 @@
 .clearfix{
   *zoom:1;/*ie6,7*/
 }
-
+html,
+button,
+input,
+select,
+textarea {
+  font: 14px/1.5em "微软雅黑","黑体";
+}
 body {
   background: #939393;
   font: 14px/1.5em "微软雅黑","黑体";
@@ -84,6 +90,7 @@ body {
 }
 #superfish-1 li.sf-depth-1 > a.active,
 #superfish-1 li.sf-depth-1.sfHover > a,
+#superfish-1 li.active-trail > a,
 #superfish-1 li.sf-depth-1 > a:hover {
   color: #fff;
 }
@@ -117,6 +124,8 @@ h1.page-title {
 }
 h2.sub-title {
   font-size: 20px;
+  font-style: italic;
+  font-weight: normal;
   line-height: 2em;
   color: #7bc423;
   margin: 0;
