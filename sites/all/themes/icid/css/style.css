@@ -106,14 +106,16 @@ body {
   line-height: 20px;
   text-align: center;
   margin-left: 0;
+  margin: 5px 0;
 }
 #superfish-1 li.sf-depth-2 a {
   color: #fff;
   text-decoration: none;
   display: block;
 }
-#superfish-1 li.sf-depth-2 a:hover {
-  text-decoration: underline;
+#superfish-1 li.sf-depth-2 a:hover,
+#superfish-1 li.sf-depth-2 a.active {
+  color: #abcd05;
 }
 
 h1.page-title {
