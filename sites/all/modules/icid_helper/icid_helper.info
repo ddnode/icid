@@ -1,0 +1,4 @@
+name = ICID Helper Module
+description = Allows menu items to contain html.
+dependencies[] = menu
+core = 7.x

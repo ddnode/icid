@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * hook_menu_link_alter
+ */
+function icid_helper_menu_link_alter(&$item) {
+  $item['options']['html'] = TRUE;
+}

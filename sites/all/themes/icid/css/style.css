@@ -73,8 +73,8 @@ body {
   background: #dcdddd;
   border-radius: 5px;
   width: 136px;
-  height: 42px;
   margin-bottom: 1px;
+  padding: 10px 0;
 }
 #superfish-1 li.sf-depth-1.active-trail,
 #superfish-1 li.sf-depth-1:hover {
@@ -84,7 +84,7 @@ body {
   color: #009cdf;
   display: block;
   text-align: center;
-  line-height: 42px;
+  line-height: 20px;
   text-decoration: none;
   font-weight: bold;
 }
@@ -100,10 +100,10 @@ body {
   top: 0;
   background: #009cdf;
   border-radius: 5px;
+  padding: 10px 0;
 }
 #superfish-1 li.sf-depth-2 {
-  height: 30px;
-  line-height: 30px;
+  line-height: 20px;
   text-align: center;
   margin-left: 0;
 }
