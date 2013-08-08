@@ -141,15 +141,19 @@ h2.sub-title {
   padding-top: 85px;
 }
 #block-block-1 .sign-up {
-  height: 35px;
   margin: 0 20px;
   background: rgb(255,255,255);
   background: rgba(255,255,255,0.8);
   filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#CCFFFFFF', endColorstr='#CCFFFFFF');
   text-align: center;
   font-weight: bold;
-  line-height: 35px;
+}
+#block-block-1 .sign-up a {
   color: #0068b6;
+  line-height: 35px;
+  height: 35px;
+  display: block;
+  text-decoration: none;
 }
 
 #block-views-sponsors-organizer,
