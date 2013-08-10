@@ -25,6 +25,7 @@ body {
   width: 960px;
   background: #fff url(../images/bg.png) bottom no-repeat;
   margin: 0 auto;
+  border: 1px solid #c9c9c9;
 }
 #header {
   height: 127px;
@@ -136,9 +137,8 @@ h2.sub-title {
 /* Sign Up */
 #block-block-1 {
   width: 174px;
-  height: 129px;
-  background: url(../images/sign-up.png) no-repeat;
-  padding-top: 85px;
+  height: 128px;
+  margin-bottom: 85px;
 }
 #block-block-1 .sign-up {
   margin: 0 20px;
