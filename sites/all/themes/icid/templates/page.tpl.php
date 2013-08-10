@@ -2,6 +2,7 @@
   <div class="inner clearfix">
     <div id="header">
       <div class="inner clearfix">
+        <a class="home" href="<?php print $front_page; ?>" >ICID</a>
         <?php print render($page['header']); ?>
       </div>
     </div>
@@ -26,6 +27,11 @@
         <div id="content">
           <div class="inner clearfix">
             <?php print render($page['help']); ?>
+            <?php if ($tabs): ?>
+              <div class="tabs">
+                <?php print render($tabs); ?>
+              </div>
+            <?php endif; ?>
             <?php print render($page['content']); ?>
           </div>
         </div>

@@ -31,6 +31,13 @@ body {
   height: 127px;
   background: url(../images/header.png) no-repeat;
 }
+#header .home {
+  display: block;
+  height: 127px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
 #main {
   margin-top: 30px;
 }
@@ -53,6 +60,12 @@ body {
 }
 .two-sidebars #content {
   width: 590px;
+}
+.no-sidebars #content {
+  width: 960px;
+}
+.no-sidebars #content .inner {
+  padding: 0 200px;
 }
 #content .inner {
   margin: 0 2px;
@@ -169,4 +182,59 @@ h2.sub-title {
 }
 .view-sponsors .views-row {
   margin-bottom: 20px;
+}
+
+/* Tabs */
+.tabs.primary {
+  margin: 0;
+  border-bottom: 1px solid #c2c0c0;
+  padding: 0 0 0 10px;
+}
+.tabs.primary li {
+  margin: 0;
+}
+.tabs.primary a {
+  display: inline-block;
+  padding: 2px 12px;
+  color: #695252;
+  margin-right: 0;
+  background-color: transparent;
+  border: none;
+}
+.tabs.primary .active a {
+  border:1px solid #c2c0c0;
+  border-bottom-color: #f1f1f1;
+  border-radius: 3px 3px 0 0;
+  background: #f1f1f1;
+  margin-bottom: -1px;
+  color: #308fc7;
+  box-shadow: -2px 0 1px -1px rgba(0,0,0,0.15),
+  2px 0 1px -1px rgba(0,0,0,0.15),
+  0 -2px 1px -1px rgba(0,0,0,0.15),
+  inset 0 1px 0 rgba(255,255,255,.8),
+  inset 1px 0 0 rgba(255,255,255,.8),
+  inset -1px 0 0 rgba(255,255,255,.8);
+}
+
+/* 用户 */
+#user-register-form .form-submit {
+
+}
+
+/* Webform */
+.webform-client-form label {
+  display: inline-block;
+  width: 250px;
+  text-align: right;
+}
+.webform-client-form input.form-text {
+  width: 250px;
+}
+#edit-submitted-directory {
+  float: right;
+}
+#edit-submitted-directory label {
+  width: 100%;
+  text-align: left;
+  display: inline;
 }
