@@ -6,3 +6,75 @@
 function icid_helper_menu_link_alter(&$item) {
   $item['options']['html'] = TRUE;
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function icid_helper_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'webform_client_form_20' && $form['details']['page_num']['#value'] == '4') {
+
+    $node = $form['#node'];
+    foreach ($node->webform['components'] as $cid => $component) {
+      if (!in_array($component['type'], array('markup', 'fieldset', 'pagebreak'))) {
+        $$component['form_key'] = $form_state['storage']['submitted'][$component['cid']];
+//dsm($component['form_key'] . $$component['form_key']);
+      }
+    }
+    $time = time();
+    $cf_fee = $time < strtotime("2013-10-10") ? 1800 : 2000;
+    $cf_fee = $registration_type == 1 ? 300 : $cf_fee;
+    $ws_fee = 800;
+    $bt_fee = 80;
+    $cf_fees = $cf_fee * $main_conference_num;
+    $ws_fees = $ws_fee * $workshop_count;
+    $bt_fees = $bt_fee * $ticket_count;
+    $total = $cf_fees + $ws_fees + $bt_fees;
+    $markups = "<table>
+                <tr>
+                  <td>注册明细<br />Registration List</td>
+                  <td>邮箱<br />Email</td>
+                  <td>注册项目<br />Registration Type</td>
+                  <td>状态<br />Actions</td>
+                </tr>
+                <tr>
+                  <td>$first_name $last_name</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>";
+    $markups .= "<table>
+                  <tr>
+                    <td>付费项目<br />Fees</td>
+                    <td>数量<br />Quantity</td>
+                    <td>费用<br />Unit Price</td>
+                    <td>总结<br />Amount</td>
+                  </tr>
+                  <tr>
+                    <td>ICID大会<br />Main Conference</td>
+                    <td>$main_conference_num</td>
+                    <td>RMB $cf_fee</td>
+                    <td>RMB $cf_fees</td>
+                  </tr>
+                  <tr>
+                    <td>主题研讨会 1<br />Workshop 1</td>
+                    <td>$workshop_count</td>
+                    <td>RMB $ws_fee</td>
+                    <td>RMB $ws_fees</td>
+                  </tr>
+                  <tr>
+                    <td>附加晚餐入场券<br />Additional Banquet Ticket</td>
+                    <td>$ticket_count</td>
+                    <td>RMB $bt_fee</td>
+                    <td>RMB $bt_fee</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td>总费用/Total</td>
+                    <td>RMB $total</td>
+                  </tr>
+                </table>";
+    $form['submitted']['confirmation']['#markup'] = $markups;
+  }
+}
