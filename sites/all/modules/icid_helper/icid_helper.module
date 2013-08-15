@@ -11,13 +11,28 @@ function icid_helper_menu_link_alter(&$item) {
  * Implements hook_form_alter().
  */
 function icid_helper_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'webform_client_form_20' && $form['details']['page_num']['#value'] == '3') {
+
+    $node = $form['#node'];
+    foreach ($node->webform['components'] as $cid => $component) {
+      if (!in_array($component['type'], array('markup', 'fieldset', 'pagebreak'))) {
+        $$component['form_key'] = $form_state['storage']['submitted'][$component['cid']];
+      }
+    }
+
+    if ($apply_for_group_price && $registration_type == 0) {
+      $num = $number_of_people_in_the_group >= 5 ? $number_of_people_in_the_group - 1 : $number_of_people_in_the_group;
+    }
+    $form['submitted']['conference_registration_fee']['main_conference']['#default_value'] = array(1);
+    $form['submitted']['conference_registration_fee']['main_conference_num']['#default_value']= isset($num) ? $num : 1;
+  }
+
   if ($form_id == 'webform_client_form_20' && $form['details']['page_num']['#value'] == '4') {
 
     $node = $form['#node'];
     foreach ($node->webform['components'] as $cid => $component) {
       if (!in_array($component['type'], array('markup', 'fieldset', 'pagebreak'))) {
         $$component['form_key'] = $form_state['storage']['submitted'][$component['cid']];
-//dsm($component['form_key'] . $$component['form_key']);
       }
     }
     $time = time();
@@ -28,7 +43,13 @@ function icid_helper_form_alter(&$form, &$form_state, $form_id) {
     $cf_fees = $cf_fee * $main_conference_num;
     $ws_fees = $ws_fee * $workshop_count;
     $bt_fees = $bt_fee * $ticket_count;
+    if ($apply_for_group_price && $registration_type == 0) {
+      $cf_fee = $time < strtotime("2013-9-30") ? 1800 : 2000;
+      $num = $number_of_people_in_the_group >= 5 ? $number_of_people_in_the_group - 1 : $number_of_people_in_the_group;
+      $cf_fees = $cf_fees * $num;
+    }
     $total = $cf_fees + $ws_fees + $bt_fees;
+
     $markups = "<table>
                 <tr>
                   <td>注册明细<br />Registration List</td>
