@@ -20,6 +20,8 @@ body {
   background: #939393;
   font: 14px/1.5em "微软雅黑","黑体";
   color: #757474;
+  word-wrap: break-word;
+  overflow-x: hidden;
 }
 #page {
   width: 960px;
@@ -88,7 +90,6 @@ body {
   border-radius: 5px;
   width: 136px;
   margin-bottom: 1px;
-  padding: 10px 0;
 }
 #superfish-1 li.sf-depth-1.active-trail,
 #superfish-1 li.sf-depth-1:hover {
@@ -101,6 +102,7 @@ body {
   line-height: 20px;
   text-decoration: none;
   font-weight: bold;
+  padding: 10px 0;
 }
 #superfish-1 li.sf-depth-1 > a.active,
 #superfish-1 li.sf-depth-1.sfHover > a,
@@ -114,7 +116,6 @@ body {
   top: 0;
   background: #009cdf;
   border-radius: 5px;
-  padding: 10px 0;
 }
 #superfish-1 li.sf-depth-2 {
   line-height: 20px;
@@ -145,6 +146,12 @@ h2.sub-title {
   color: #7bc423;
   margin: 0;
   background: url(../images/page-title.png) bottom no-repeat;
+}
+
+h2.content-title{
+  font-size:16px;
+  font-weight:normal;
+  color:#7bc423;
 }
 
 /* Sign Up */
