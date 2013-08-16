@@ -90,6 +90,7 @@ body {
   border-radius: 5px;
   width: 136px;
   margin-bottom: 1px;
+  float: none;
 }
 #superfish-1 li.sf-depth-1.active-trail,
 #superfish-1 li.sf-depth-1:hover {
@@ -244,4 +245,27 @@ h2.content-title{
   width: 100%;
   text-align: left;
   display: inline;
+}
+
+/* block-style */
+#block-block-2,
+#block-block-3 {
+  margin: 20px 5px 20px 20px;
+  clear: both;
+}
+#block-block-2 h2,
+#block-block-3 h2 {
+  font-size: 15px;
+  color: #009cdf;
+}
+#block-block-2 ul,
+#block-block-3 ul {
+  font-size: 13px;
+  list-style: none;
+  padding: 0;
+  color: #939393;
+}
+#block-block-2 a,
+#block-block-3 a {
+  color: #939393;
 }
