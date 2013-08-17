@@ -28,9 +28,9 @@ function icid_helper_form_alter(&$form, &$form_state, $form_id) {
     $ws_fee = 800;
     $bt_fee = 80;
 
-    $main_conference_num = isset($group_people_num) ? $group_people_num : 1;
+    $main_conference_num = $group_people_num ? $group_people_num : 1;
     $workshop_count = $workshop ? $main_conference_num : 0;
-    $ticket_count = isset($ticket_count) ? $ticket_count : 0;
+    $ticket_count = $ticket_count ? $ticket_count : 0;
 
     //优惠价 8折
     if ($workshop) {
@@ -64,7 +64,7 @@ function icid_helper_form_alter(&$form, &$form_state, $form_id) {
                 <tr>
                   <td>$first_name $last_name</td>
                   <td>$user->mail</td>
-                  <td></td>
+                  <td>$registration_type</td>
                 </tr>
               </table>";
     $markups .= "<table>
