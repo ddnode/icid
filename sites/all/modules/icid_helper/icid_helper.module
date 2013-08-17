@@ -11,56 +11,59 @@ function icid_helper_menu_link_alter(&$item) {
  * Implements hook_form_alter().
  */
 function icid_helper_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id == 'webform_client_form_20' && $form['details']['page_num']['#value'] == '4') {
-
-    $node = $form['#node'];
-    foreach ($node->webform['components'] as $cid => $component) {
-      if (!in_array($component['type'], array('markup', 'fieldset', 'pagebreak')) && isset($form_state['storage']['submitted'][$component['cid']])) {
-        $$component['form_key'] = $form_state['storage']['submitted'][$component['cid']];
-      }
-    }
-
-    if ($apply_for_group_price && $registration_type == 0) {
-      $num = $number_of_people_in_the_group >= 5 ? $number_of_people_in_the_group - 1 : $number_of_people_in_the_group;
-    }
-    $form['submitted']['conference_registration_fee']['main_conference']['#default_value'] = array(1);
-    $form['submitted']['conference_registration_fee']['main_conference_num']['#default_value']= isset($num) ? $num : 1;
-  }
+  global $user;
 
   if ($form_id == 'webform_client_form_20' && $form['details']['page_num']['#value'] == '5') {
 
     $node = $form['#node'];
     foreach ($node->webform['components'] as $cid => $component) {
-      if (!in_array($component['type'], array('markup', 'fieldset', 'pagebreak'))) {
+      if (isset($form_state['storage']['submitted'][$component['cid']])) {
         $$component['form_key'] = $form_state['storage']['submitted'][$component['cid']];
       }
     }
+
     $time = time();
     $cf_fee = $time < strtotime("2013-10-10") ? 1800 : 2000;
     $cf_fee = $registration_type == 1 ? 300 : $cf_fee;
     $ws_fee = 800;
     $bt_fee = 80;
+
+    $main_conference_num = isset($group_people_num) ? $group_people_num : 1;
+    $workshop_count = $workshop ? $main_conference_num : 0;
+    $ticket_count = isset($ticket_count) ? $ticket_count : 0;
+
+    //优惠价 8折
+    if ($workshop) {
+      $cf_fee = $cf_fee * 0.8;
+      $ws_fee = $ws_fee * 0.8;
+    }
+
     $cf_fees = $cf_fee * $main_conference_num;
     $ws_fees = $ws_fee * $workshop_count;
     $bt_fees = $bt_fee * $ticket_count;
+
+    //团体价 满5减1
     if ($apply_for_group_price && $registration_type == 0) {
       $cf_fee = $time < strtotime("2013-9-30") ? 1800 : 2000;
-      $num = $number_of_people_in_the_group >= 5 ? $number_of_people_in_the_group - 1 : $number_of_people_in_the_group;
-      $cf_fees = $cf_fees * $num;
+      if ($workshop) {
+        $cf_fee = $cf_fee * 0.8;
+      }
+      $num = $group_people_num >= 5 ? ceil($group_people_num * 0.8) : $group_people_num;
+      $cf_fees = $cf_fee * $num;
+      $ws_fees = $ws_fee * $num;
     }
     $total = $cf_fees + $ws_fees + $bt_fees;
 
+    $registration_type = $registration_type ? '学生' : '成人';
     $markups = "<table>
                 <tr>
                   <td>注册明细<br />Registration List</td>
                   <td>邮箱<br />Email</td>
                   <td>注册项目<br />Registration Type</td>
-                  <td>状态<br />Actions</td>
                 </tr>
                 <tr>
                   <td>$first_name $last_name</td>
-                  <td></td>
-                  <td></td>
+                  <td>$user->mail</td>
                   <td></td>
                 </tr>
               </table>";
@@ -97,5 +100,6 @@ function icid_helper_form_alter(&$form, &$form_state, $form_id) {
                   </tr>
                 </table>";
     $form['submitted']['confirmation']['#markup'] = $markups;
+    $form['submitted']['total_fees']['#value'] = $total;
   }
 }
