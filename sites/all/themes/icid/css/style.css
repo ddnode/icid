@@ -36,6 +36,7 @@ body {
 #header .home {
   display: block;
   height: 127px;
+  line-height: 127px;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
