@@ -20,13 +20,13 @@
   $mail = $user->mail;
 
   $main_conference_num = $renderable['conference_registration_fee']['main_conference_num']['#value'];
-  $workshop_count = $renderable['workshop_fees']['workshop_count']['#value'];
-  $ticket_count = $renderable['additional_banquet_ticket']['ticket_count']['#value'];
-  $apply_for_group_price = $renderable['groups']['apply_for_group_price']['#value'];
+  $workshop_count = isset($renderable['workshop_fees']['workshop_count']['#value']) ? $renderable['workshop_fees']['workshop_count']['#value'] : 0;
+  $ticket_count = isset($renderable['additional_banquet_ticket']['ticket_count']['#value']) ? $renderable['additional_banquet_ticket']['ticket_count']['#value'] : 0;
+  $apply_for_group_price = isset($renderable['groups']['apply_for_group_price']['#value']) ? $renderable['groups']['apply_for_group_price']['#value'] : '';
   $registration_type = $renderable['registration_type']['#value'][0];
-  $number_of_people_in_the_group = $renderable['groups']['number_of_people_in_the_group']['#value'];
+  $number_of_people_in_the_group = isset($renderable['groups']['number_of_people_in_the_group']['#value']) ? $renderable['groups']['number_of_people_in_the_group']['#value'] : 0;
 
-  $time = time();
+  $time = $renderable['#submission']->submitted;
   $cf_fee = $time < strtotime("2013-10-10") ? 1800 : 2000;
   $cf_fee = $registration_type == 1 ? 300 : $cf_fee;
   $ws_fee = 800;
