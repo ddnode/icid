@@ -11,7 +11,7 @@ function icid_helper_menu_link_alter(&$item) {
  * Implements hook_form_alter().
  */
 function icid_helper_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id == 'webform_client_form_20' && $form['details']['page_num']['#value'] == '3') {
+  if ($form_id == 'webform_client_form_20' && $form['details']['page_num']['#value'] == '4') {
 
     $node = $form['#node'];
     foreach ($node->webform['components'] as $cid => $component) {
@@ -27,7 +27,7 @@ function icid_helper_form_alter(&$form, &$form_state, $form_id) {
     $form['submitted']['conference_registration_fee']['main_conference_num']['#default_value']= isset($num) ? $num : 1;
   }
 
-  if ($form_id == 'webform_client_form_20' && $form['details']['page_num']['#value'] == '4') {
+  if ($form_id == 'webform_client_form_20' && $form['details']['page_num']['#value'] == '5') {
 
     $node = $form['#node'];
     foreach ($node->webform['components'] as $cid => $component) {
