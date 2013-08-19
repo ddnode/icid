@@ -64,5 +64,5 @@
 传真：86-01-62798933
 </p>
 
-<a href="javascript:window.print(); return false;" class="print">Print</a>
-<a href="javascript:var win = window.open('', '_self'); win.close(); return false;" class="close">Close</a>
+<a href="javascript:window.print();" class="print">Print</a>
+<a href="javascript:var win = window.open('', '_self'); win.close();" class="close">Close</a>

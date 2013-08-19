@@ -53,7 +53,8 @@ body {
   width: 170px;
 }
 #sidebar-second {
-  width: 200px;
+  width: 190px;
+  padding-left:10px;
 }
 .sidebar-first #content {
   width: 790px;
@@ -62,7 +63,8 @@ body {
   width: 760px;
 }
 .two-sidebars #content {
-  width: 590px;
+  width: 570px;
+  padding:0 10px;
 }
 .no-sidebars #content {
   width: 960px;
@@ -156,12 +158,18 @@ h2.content-title {
   color:#7bc423;
 }
 
+.content p{
+  text-align:justify;
+}
+
 /* Sign Up */
 #block-block-1 {
   width: 174px;
   height: 128px;
   margin-bottom: 85px;
 }
+
+
 #block-block-1 .sign-up {
   margin: 0 20px;
   background: rgb(255,255,255);
@@ -180,8 +188,8 @@ h2.content-title {
 
 #block-views-sponsors-organizer,
 #block-views-sponsors-sponsor {
-  width: 150px;
-  margin-left: 25px;
+  width: 165px;
+  margin-left: 5px;
   border-bottom: 1px solid #bcbcbc;
 }
 #block-views-sponsors-organizer h2,
@@ -247,6 +255,22 @@ h2.content-title {
   text-align: left;
   display: inline;
 }
+#webform-component-registration-type label,
+#webform-component-main-conference label,
+#webform-component-groups--apply-for-group-price label,
+#webform-component-workshop label,
+#webform-component-additional-banquet-ticket label,
+#webform-component-other-personal-information--other-needs label,
+#webform-component-fees-status label {
+  width: auto;
+}
+#webform-component-confirmation table {
+  width: 550px;
+  margin-bottom: 20px;
+}
+#webform-component-confirmation td {
+  padding: 2px;
+}
 
 /* block-style */
 #block-block-2,
@@ -260,22 +284,42 @@ h2.content-title {
   color: #009cdf;
 }
 #block-block-2 ul,
-#block-block-3 ul {
+#block-block-3 ul,
+#block-block-1 ul{
   font-size: 13px;
   list-style: none;
   padding: 0;
   color: #939393;
+}
+#block-block-1 ul{
+  padding-left:5px;
 }
 #block-block-2 a,
 #block-block-3 a {
   color: #939393;
 }
 
-.node table,
+.node table{
+  border: 2px solid #000;
+}
 .node tr,
 .node td {
   border: 1px solid #000;
 }
+
 .node table {
   table-layout: fixed;
+}
+.node table p{
+  margin:0 3px;
+  text-align:left;
+}
+
+.node td.highlight-1{
+  background:#0097e0;
+  color:#FFFFFF;
+}
+
+.node td.highlight-2{
+  background:#cdeaf8;
 }
