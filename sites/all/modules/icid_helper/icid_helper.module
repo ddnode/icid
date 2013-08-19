@@ -8,6 +8,13 @@ function icid_helper_menu_link_alter(&$item) {
 }
 
 /**
+ * Implements hook_menu_alter().
+ */
+function icid_helper_menu_alter(&$items) {
+  $items['user/register']['weight'] = 5;
+  $items['user/password']['weight'] = 10;
+}
+/**
  * Implements hook_form_alter().
  */
 function icid_helper_form_alter(&$form, &$form_state, $form_id) {

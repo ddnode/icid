@@ -218,7 +218,7 @@ h2.content-title {
   background-color: transparent;
   border: none;
 }
-.tabs.primary .active a {
+.tabs.primary li .active {
   border:1px solid #c2c0c0;
   border-bottom-color: #f1f1f1;
   border-radius: 3px 3px 0 0;
@@ -231,11 +231,6 @@ h2.content-title {
   inset 0 1px 0 rgba(255,255,255,.8),
   inset 1px 0 0 rgba(255,255,255,.8),
   inset -1px 0 0 rgba(255,255,255,.8);
-}
-
-/* 用户 */
-#user-register-form .form-submit {
-
 }
 
 /* Webform */
