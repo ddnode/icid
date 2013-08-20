@@ -27,7 +27,7 @@
         <div id="content">
           <div class="inner clearfix">
             <?php print render($page['help']); ?>
-            <?php global $user; if ($user->uid = 0): ?>
+            <?php global $user; if ($user->uid == 0): ?>
               <div class="tabs">
                 <ul class="tabs primary">
                   <li><?php print l('登录<br />Log in', 'user', array('html' => TRUE)); ?></li>
