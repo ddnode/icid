@@ -1,4 +1,5 @@
 name = ICID Helper Module
 description = Allows menu items to contain html.
 dependencies[] = menu
+dependencies[] = webform
 core = 7.x

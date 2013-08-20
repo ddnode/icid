@@ -107,6 +107,43 @@ function icid_helper_form_alter(&$form, &$form_state, $form_id) {
                   </tr>
                 </table>";
     $form['submitted']['confirmation']['#markup'] = $markups;
+    $form['submitted']['apply_info']['#value'] = $markups;
     $form['submitted']['total_fees']['#value'] = $total;
   }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function icid_helper_menu() {
+  $items['user/fees-info'] = array(
+    'title' => '缴费信息',
+    'page callback' => 'icid_helper_fees_info',
+    'access callback' => 'user_is_logged_in',
+  );
+
+  return $items;
+}
+
+function icid_helper_fees_info() {
+  global $user;
+
+  $result = db_select('webform_submissions', 'ws')
+    ->fields('ws', array('sid'))
+    ->condition('nid', 20)
+    ->condition('uid', $user->uid)
+    ->execute();
+
+    $sids = array();
+    foreach ($result as $row) {
+      $sids[] = $row->sid;
+      $submissions[$row->sid] = FALSE;
+    }
+
+    if (empty($sids)) {
+      drupal_set_message('您还没有报名');
+      drupal_goto('node/20');
+    }
+
+    drupal_goto('node/20/submission/' . $sids[0]);
 }

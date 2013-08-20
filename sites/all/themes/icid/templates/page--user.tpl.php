@@ -27,13 +27,21 @@
         <div id="content">
           <div class="inner clearfix">
             <?php print render($page['help']); ?>
-            <div class="tabs">
-              <ul class="tabs primary">
-                <li><?php print l('登录<br />Log in', 'user', array('html' => TRUE)); ?></li>
-                <li><?php print l('创建新帐号<br />Create new account', 'user/register', array('html' => TRUE)); ?></li>
-                <li><?php print l('重设密码<br />Request new password', 'user/password', array('html' => TRUE)); ?></li>
-              </ul>
-            </div>
+            <?php global $user; if ($user->uid = 0): ?>
+              <div class="tabs">
+                <ul class="tabs primary">
+                  <li><?php print l('登录<br />Log in', 'user', array('html' => TRUE)); ?></li>
+                  <li><?php print l('创建新帐号<br />Create new account', 'user/register', array('html' => TRUE)); ?></li>
+                  <li><?php print l('重设密码<br />Request new password', 'user/password', array('html' => TRUE)); ?></li>
+                </ul>
+              </div>
+            <?php else: ?>
+              <?php if ($tabs): ?>
+                <div class="tabs">
+                  <?php print render($tabs); ?>
+                </div>
+              <?php endif; ?>
+            <?php endif; ?>
             <?php print render($page['content']); ?>
           </div>
         </div>
