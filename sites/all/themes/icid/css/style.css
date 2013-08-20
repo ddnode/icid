@@ -259,10 +259,14 @@ h2.content-title {
 #webform-component-fees-status label {
   width: auto;
 }
+#webform-component-markup table,
+.webform-submission table,
 #webform-component-confirmation table {
   width: 550px;
   margin-bottom: 20px;
 }
+#webform-component-markup td,
+.webform-submission td,
 #webform-component-confirmation td {
   padding: 2px;
 }
@@ -294,27 +298,27 @@ h2.content-title {
   color: #939393;
 }
 
-.node table{
+.page-node table{
   border: 2px solid #000;
 }
-.node tr,
-.node td {
+.page-node tr,
+.page-node td {
   border: 1px solid #000;
 }
 
-.node table {
+.page-node table {
   table-layout: fixed;
 }
-.node table p{
+.page-node table p {
   margin:0 3px;
   text-align:left;
 }
 
-.node td.highlight-1{
+.page-node td.highlight-1 {
   background:#0097e0;
   color:#FFFFFF;
 }
 
-.node td.highlight-2{
+.page-node td.highlight-2 {
   background:#cdeaf8;
 }
