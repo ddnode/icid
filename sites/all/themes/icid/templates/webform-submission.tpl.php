@@ -22,50 +22,55 @@
   $registration_type = $renderable['registration_type']['#value']['0'] ? '学生' : '成人';
   $group_price = isset($renderable['groups']['group_people_num']) ? '是' : '否';
   $total = $renderable['total_fees']['#markup'];
-  $fees_status = '未付款';
+  $fees_status = '否/NO';
   if (isset($renderable['fees_status'])) {
-    $fees_status = $renderable['fees_status']['#value'][0] ? '已付款' : '未付款';
+    $fees_status = isset($renderable['fees_status']['#value'][0]) ? '是/YES' : '否/NO';
   }
 ?>
-<h3>非常感谢您参加 2013 年交互设计国际会议，您的注册已完成，以下是详细信息：</h3>
+<h3>非常感谢您参加 2013 年交互设计国际会议，您的注册已完成，以下是详细信息：<br />
+Congratulations for completing your registration, detail information listed as below:</h3>
 <table>
   <tr>
-    <td>注册邮箱</td>
-    <td><?php print $mail; ?></td>
+    <td class="th-highlight">注册明细<br />Registration List</td>
+    <td class="th-highlight">邮箱<br />Email</td>
+    <td class="th-highlight">注册项目<br />Registration Type</td>
+    <td class="th-highlight">注册费用<br />Registration fee</td>
+    <td class="th-highlight">参会资格<br />Qualification</td>
   </tr>
   <tr>
-    <td>姓名</td>
     <td><?php print $name; ?></td>
-  </tr>
-  <tr>
-    <td>注册项目</td>
+    <td><?php print $mail; ?></td>
     <td><?php print $registration_type; ?></td>
-  </tr>
-  <tr>
-    <td>团队价格</td>
-    <td><?php print $group_price; ?></td>
-  </tr>
-  <tr>
-    <td>注册费用</td>
     <td>RMB <?php print $total; ?>元</td>
-  </tr>
-  <tr>
-    <td>付款状态</td>
     <td><?php print $fees_status; ?></td>
   </tr>
 </table>
 <?php print $renderable['apply_info']['#markup']; ?>
 <p>
-汇款账号<br />
+<h3>汇款账号</h3>
+<p>
 所有参会费用须以汇款支付。<br />
-户名： 清华大学<br />
-账号： 0200004509089131550<br />
-开户行：工商银行北京分行海淀西区支行<br />
-备注栏务必注明：2013交互设计国际会议注册费用＋会员姓名和编号<br />
-组委会联系人：关琰<br />
+账户名称： 清华大学<br />
+银行账号： 7783 5003 3647<br />
+开户行名称：中国银行，总行<br />
+开户行地址：北京市西城区复兴门内大街1号<br />
+备注栏务必注明：ICID2013注册费用＋会员姓名和编号, 信息艺术设计系，王跃美 收<br />
 地址：北京市清华大学美术学院信息艺术设计系B435室<br />
 电话：86-01-62798934<br />
 传真：86-01-62798933
 </p>
+<h3>Remittance Account</h3>
+<p>
+All registration fees must be making a remittance.<br />
+Beneficiary’s Name: TSINGHUA UNIVERSITY <br />
+Account Number: 7783 5003 3647 <br />
+Beneficiary’s Bank Name: THE BANK OF CHINA, Head Office<br />
+Beneficiary’s Bank Address: NO. 1, Fuxingmen Nei Avenue, Beijing, PRC, 100818
+SWIFT Code: BKCHCNBJ<br />
+Remittance Information: ICID2013;Information Art & Design Department; Wang Yue Mei<br />
+Tel: 86-01-62798934<br />
+Fax: 86-01-62798933
+</p>
 
 <a href="javascript:window.print();" class="print">Print</a>
+<a href="/" class="home-link">Home</a>

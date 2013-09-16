@@ -322,3 +322,47 @@ h2.content-title {
 .page-node td.highlight-2 {
   background:#cdeaf8;
 }
+.th-highlight {
+  background:#0097e0;
+  text-align: center;
+  color: #fff;
+}
+.th-highlight td {
+  color: #fff;
+  text-align: center;
+}
+.td-highlight {
+  color: red;
+  font-weight: bold;
+}
+
+#block-block-4 {
+  width:160px;
+  border-radius: 5px 5px 5px 5px;
+}
+#block-block-4 a {
+  display:block;
+  background:#009CDF;
+  color:#FFFFFF;
+  text-align:center;
+  text-decoration:none;
+}
+
+.webform-client-form #edit-submit,
+.home-link,
+.print {
+  display: inline-block;
+  width: 100px;
+  height: 24px;
+  line-height: 24px;
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+  background: url(../images/btn.png) repeat-x;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.webform-client-form #edit-submit {
+  border: none;
+  float: right;
+}

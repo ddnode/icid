@@ -91,7 +91,7 @@
   <?php print render($title_suffix); ?>
 
   <h1 class="page-title">臨界點 The Tipping Point</h1>
-  <h2 class="sub-title">第三届交互设计国际会议：2013.11.15-17</h2>
+  <h2 class="sub-title">第三届交互设计国际会议 清华大学美术学院：Nov. 15-17, 2013</h2>
   <?php if ($display_submitted): ?>
     <div class="submitted">
       <?php print $submitted; ?>

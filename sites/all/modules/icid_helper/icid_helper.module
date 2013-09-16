@@ -30,7 +30,7 @@ function icid_helper_form_alter(&$form, &$form_state, $form_id) {
     }
 
     $time = time();
-    $cf_fee = $time < strtotime("2013-10-10") ? 1800 : 2000;
+    $cf_fee = $time < strtotime("2013-10-11") ? 1800 : 2100;
     $cf_fee = $registration_type == 1 ? 300 : $cf_fee;
     $ws_fee = 800;
     $bt_fee = 80;
@@ -51,19 +51,17 @@ function icid_helper_form_alter(&$form, &$form_state, $form_id) {
 
     //团体价 满5减1
     if ($apply_for_group_price && $registration_type == 0) {
-      $cf_fee = $time < strtotime("2013-9-30") ? 1800 : 2000;
-      if ($workshop) {
-        $cf_fee = $cf_fee * 0.8;
-      }
       $num = $group_people_num >= 5 ? ceil($group_people_num * 0.8) : $group_people_num;
-      $cf_fees = $cf_fee * $num;
+      if ($workshop) {
+        $cf_fees = $cf_fee * $num;
+      }
       $ws_fees = $ws_fee * $num;
     }
     $total = $cf_fees + $ws_fees + $bt_fees;
 
     $registration_type = $registration_type ? '学生' : '成人';
     $markups = "<table>
-                <tr>
+                <tr class='th-highlight'>
                   <td>注册明细<br />Registration List</td>
                   <td>邮箱<br />Email</td>
                   <td>注册项目<br />Registration Type</td>
@@ -74,8 +72,8 @@ function icid_helper_form_alter(&$form, &$form_state, $form_id) {
                   <td>$registration_type</td>
                 </tr>
               </table>";
-    $markups .= "<table>
-                  <tr>
+    $markups .= $apply_info = "<table>
+                  <tr class='th-highlight'>
                     <td>付费项目<br />Fees</td>
                     <td>数量<br />Quantity</td>
                     <td>费用<br />Unit Price</td>
@@ -103,11 +101,11 @@ function icid_helper_form_alter(&$form, &$form_state, $form_id) {
                     <td></td>
                     <td></td>
                     <td>总费用/Total</td>
-                    <td>RMB $total</td>
+                    <td class='td-highlight'>RMB $total</td>
                   </tr>
                 </table>";
     $form['submitted']['confirmation']['#markup'] = $markups;
-    $form['submitted']['apply_info']['#value'] = $markups;
+    $form['submitted']['apply_info']['#value'] = $apply_info;
     $form['submitted']['total_fees']['#value'] = $total;
   }
 }
